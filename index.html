@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تحدّي رحلة إتقان – كيمياء ثاني ثانوي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef8f7;--card:#fff;--ink:#12304a;--mute:#5b6b7a;--teal:#0f8b8d;--gold:#f2b632;--ok:#1d9a5b;--okbg:#e2f6ea;--bad:#d64550;--badbg:#fde8ea;--line:#b7d6d6;--head1:#0e2f55;--head2:#0f8b8d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1b2a;--card:#14293d;--ink:#e8f1f5;--mute:#9bb0bf;--teal:#3cc4c6;--ok:#4cd08a;--okbg:#12362a;--bad:#ff7b86;--badbg:#3b1d24;--line:#2d4a5e;--head1:#071423;--head2:#0b4f53}}
+:root[data-theme="dark"]{--bg:#0d1b2a;--card:#14293d;--ink:#e8f1f5;--mute:#9bb0bf;--teal:#3cc4c6;--ok:#4cd08a;--okbg:#12362a;--bad:#ff7b86;--badbg:#3b1d24;--line:#2d4a5e;--head1:#071423;--head2:#0b4f53}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cairo',system-ui,sans-serif;line-height:1.7}
+header{background:linear-gradient(135deg,var(--head1),var(--head2));color:#fff;padding:22px 18px 26px;text-align:center;border-bottom:5px solid var(--gold)}
+header h1{margin:0;font-size:30px;font-weight:900}
+header p{margin:4px 0 0;font-size:15px;opacity:.95}
+header .t{color:var(--gold);font-weight:700}
+main{max-width:640px;margin:0 auto;padding:18px 14px 40px}
+h2{font-size:20px;margin:6px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.tile{background:var(--card);border:3px solid var(--line);border-radius:14px;padding:10px 10px 12px;text-align:center;cursor:pointer;font:inherit;color:inherit;position:relative}
+.tile:hover,.tile:focus-visible{border-color:var(--teal);outline:none}
+.tile .no{position:absolute;top:6px;right:10px;font-size:13px;color:var(--mute);font-weight:700}
+.tile .sym{font-size:38px;font-weight:900;color:var(--teal);direction:ltr;line-height:1.5;margin-top:10px}
+.tile .nm{font-weight:700;font-size:16px}
+.tile .st{font-size:15px;margin-top:2px;letter-spacing:2px}
+.btn{font:inherit;font-weight:700;font-size:17px;border:0;border-radius:12px;padding:10px 20px;cursor:pointer;background:var(--teal);color:#fff;margin:4px}
+.btn.g{background:transparent;color:var(--teal);border:2px solid var(--teal)}
+.btn.y{background:var(--gold);color:#12304a}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin:8px 0 14px}
+.bar i{display:block;height:100%;background:var(--gold)}
+.q{font-size:21px;font-weight:700;margin:6px 0 14px}
+.opt{display:block;width:100%;font:inherit;font-size:19px;font-weight:700;text-align:center;background:var(--card);color:var(--ink);border:3px solid var(--line);border-radius:12px;padding:10px;margin:0 0 10px;cursor:pointer;direction:ltr}
+.opt.ar{direction:rtl}
+.opt:focus-visible{outline:3px solid var(--gold)}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.bad{border-color:var(--bad);background:var(--badbg)}
+.fb{border-radius:12px;padding:10px 14px;margin:6px 0 10px;font-size:16px;background:var(--card);border:2px dashed var(--line)}
+.res{text-align:center}
+.res .big{font-size:54px;font-weight:900;color:var(--teal);line-height:1.2}
+.res .stars{font-size:34px;letter-spacing:4px}
+.cert{background:var(--card);border:6px double var(--gold);border-radius:12px;padding:22px 16px;text-align:center}
+.cert h2{font-size:28px;color:var(--teal);margin:0}
+.cert .n{font-size:26px;font-weight:900;border-bottom:2px dotted var(--teal);display:inline-block;min-width:200px;margin:6px 0}
+.cert input{font:inherit;font-size:18px;padding:8px 12px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);width:100%;margin:8px 0}
+.sg{display:flex;justify-content:space-around;margin-top:16px;font-size:15px}
+.sg b{display:block;font-size:17px}
+sup,sub{font-size:.65em}
+@media print{.np{display:none!important}body{background:#fff;color:#000}.cert{border-color:#c99a1c}}
+</style>
+</head>
+<body>
+<header class="np">
+<h1>تحدّي رحلة إتقان</h1>
+<p>كيمياء – الصف الثاني الثانوي  |  الثانوية ١٠٣</p>
+<p><span class="t">معلمة المادة:</span> آمنة المالكي</p>
+</header>
+<main id="app"></main>
+<script>
+const fm=s=>s.replace(/\^(.+?)\^/g,'<sup>$1</sup>').replace(/_(.+?)_/g,'<sub>$1</sub>');
+const T=[
+{n:'التوزيع الإلكتروني',s:'1s^2^',q:[
+['التوزيع الإلكتروني للصوديوم Na (العدد الذري 11):','1s^2^ 2s^2^ 2p^6^ 3s^1^','1s^2^ 2s^2^ 2p^5^ 3s^2^','1s^2^ 2s^2^ 2p^6^ 3s^2^','1s^2^ 2s^1^ 2p^6^ 3s^2^','المجموع 11 إلكتروناً، ويبقى إلكترون واحد في 3s.'],
+['عدد إلكترونات التكافؤ في الأكسجين O (العدد الذري 8):','6','2','4','8','التوزيع 1s^2^ 2s^2^ 2p^4^، والتكافؤ في المستوى الثاني: 2 + 4 = 6.'],
+['أي مستوى فرعي يُملأ مباشرة بعد 3p؟','4s','3d','4p','4d','4s أقل طاقة من 3d فيُملأ قبله.'],
+['أقصى عدد من الإلكترونات يتسع له المستوى الفرعي p:','6','2','10','14','المستوى p فيه 3 أفلاك، وكل فلك يتسع لإلكترونين.'],
+['التوزيع الإلكتروني للكلور Cl (العدد الذري 17):','1s^2^ 2s^2^ 2p^6^ 3s^2^ 3p^5^','1s^2^ 2s^2^ 2p^6^ 3s^2^ 3p^6^','1s^2^ 2s^2^ 2p^6^ 3s^1^ 3p^6^','1s^2^ 2s^2^ 2p^5^ 3s^2^ 3p^6^','2+2+6+2+5 = 17 إلكتروناً.']]},
+{n:'الصيغ الأيونية',s:'Cl^−^',q:[
+['صيغة كلوريد الصوديوم:','NaCl','Na_2_Cl','NaCl_2_','Na_2_Cl_2_','Na^+^ و Cl^−^ شحنتاهما متعادلتان بنسبة 1 : 1.'],
+['شحنة أيون الماغنسيوم Mg (المجموعة 2):','2+','1+','1−','2−','يفقد إلكترونين فيصبح Mg^2+^.'],
+['صيغة أكسيد الألومنيوم:','Al_2_O_3_','AlO','Al_3_O_2_','AlO_3_','Al^3+^ و O^2−^: نتبادل الشحنات (الطريقة المتقاطعة).'],
+['صيغة كلوريد الكالسيوم:','CaCl_2_','CaCl','Ca_2_Cl','Ca_2_Cl_2_','Ca^2+^ يحتاج أيونين من Cl^−^.'],
+['الفلور F يكتسب إلكتروناً فيتحول إلى أيون شحنته:','1−','1+','2−','7−','اكتسب إلكتروناً سالباً فصارت الشحنة 1−.']]},
+{n:'الجدول الدوري',s:'Fe',q:[
+['تسمى عناصر المجموعة 17:','الهالوجينات','الفلزات القلوية','القلويات الأرضية','الغازات النبيلة','مثل F وCl وBr، وكلها تحتاج إلكتروناً لتكتمل.'],
+['عدد إلكترونات التكافؤ لعناصر المجموعة 1:','1','2','7','8','رقم المجموعة 1 يدل على إلكترون تكافؤ واحد.'],
+['أي العناصر التالية غاز نبيل؟','Ne','Na','Cl','O','النيون من المجموعة 18 ومستواه الأخير مكتمل.'],
+['في الدورة الواحدة من اليسار إلى اليمين، الكهروسالبية:','تزداد','تقل','تبقى ثابتة','تقل ثم تزداد','تزداد بزيادة الشحنة النووية.'],
+['يقل نصف القطر الذري في الدورة الواحدة من اليسار إلى اليمين بسبب:','زيادة الشحنة النووية الفعالة','زيادة عدد المستويات','نقص عدد البروتونات','زيادة الكتلة فقط','النواة تجذب الإلكترونات بقوة أكبر.']]},
+{n:'الرابطة التساهمية',s:'H_2_O',q:[
+['تتكون الرابطة التساهمية عن طريق:','مشاركة الإلكترونات','انتقال الإلكترونات','تجاذب أيونين','فقدان البروتونات','ذرات اللافلزات تتشارك الإلكترونات.'],
+['نوع الرابطة بين ذرتي النيتروجين في N_2_:','ثلاثية','أحادية','ثنائية','أيونية','كل ذرة تحتاج 3 إلكترونات فتتشارك 3 أزواج.'],
+['عدد الأزواج غير الرابطة على ذرة الأكسجين في الماء:','2','0','1','3','الأكسجين له 6 إلكترونات تكافؤ، استخدم منها 2 في الروابط.'],
+['أي المركبات التالية تساهمي؟','CO_2_','NaCl','MgO','KBr','يتكون من لافلزين هما C وO.'],
+['عدد الإلكترونات في الزوج المشترك بالرابطة الأحادية:','2','1','3','4','كل ذرة تساهم بإلكترون واحد.']]},
+{n:'الغازات',s:'Ne',q:[
+['عند ثبوت درجة الحرارة، يقل حجم الغاز إذا زاد الضغط. هذا قانون:','بويل','شارل','جاي لوساك','أفوجادرو','الحجم والضغط علاقتهما عكسية.'],
+['قانون شارل يربط بين:','الحجم ودرجة الحرارة بالكلفن','الضغط والحجم','الضغط ودرجة الحرارة','الحجم وعدد المولات','عند ثبوت الضغط.'],
+['الحجم المولي لأي غاز عند الظروف المعيارية STP:','22.4 L','11.2 L','44.8 L','1 L','المول الواحد يشغل 22.4 لتراً.'],
+['الصفر المئوي (0 °C) يساوي بالكلفن:','273 K','0 K','100 K','373 K','K = °C + 273.'],
+['يساوي الضغط الجوي المعياري (1 atm):','101.3 kPa','760 kPa','1013 kPa','273 kPa','وهو كذلك 760 mmHg.']]}
+];
+const $=document.getElementById('app');
+const ld=()=>{try{return JSON.parse(localStorage.getItem('tahadi')||'{}')}catch(e){return{}}};
+const sv=o=>{try{localStorage.setItem('tahadi',JSON.stringify(o))}catch(e){}};
+const star=s=>s>=5?3:s>=4?2:s>=3?1:0;
+const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let S={};
+function home(){
+const b=ld();let tot=0;
+const tiles=T.map((t,i)=>{const k=b[i]||0;tot+=k;return `<button class="tile" onclick="go(${i})"><span class="no">${i+1}</span><div class="sym">${fm(t.s)}</div><div class="nm">${t.n}</div><div class="st">${'★'.repeat(k)}${'☆'.repeat(3-k)}</div></button>`}).join('');
+$.innerHTML=`<h2>اختاري التحدّي</h2><p style="margin:0 0 12px;color:var(--mute)">كل تحدٍّ خمسة أسئلة. اجمعي النجوم، وإذا حصلتِ على 4 من 5 تأخذين شهادة تميّز.</p><div class="grid">${tiles}</div><p style="text-align:center;margin-top:18px;font-weight:700">مجموع نجومك: ${tot} من 15</p>`;
+}
+function go(t){S={t,i:0,s:0,lock:false};ask()}
+function ask(){
+const q=T[S.t].q[S.i];
+S.o=sh([[q[1],1],[q[2],0],[q[3],0],[q[4],0]]);S.lock=false;
+const ar=x=>/[\u0600-\u06FF]/.test(x)?' ar':'';
+$.innerHTML=`<div class="np"><button class="btn g" onclick="home()">رجوع</button> <b>${T[S.t].n}</b></div><div class="bar"><i style="width:${S.i/5*100}%"></i></div><div class="q">${S.i+1}. ${fm(q[0])}</div>${S.o.map((o,k)=>`<button class="opt${ar(o[0])}" onclick="pick(${k})">${fm(o[0])}</button>`).join('')}<div id="fb"></div>`;
+}
+function pick(k){
+if(S.lock)return;S.lock=true;
+const q=T[S.t].q[S.i],bs=document.querySelectorAll('.opt'),ok=S.o[k][1];
+if(ok)S.s++;
+bs.forEach((b,j)=>{if(S.o[j][1])b.classList.add('ok')});
+if(!ok)bs[k].classList.add('bad');
+const last=S.i==4;
+document.getElementById('fb').innerHTML=`<div class="fb">${ok?'أحسنتِ! ':'الإجابة الصحيحة باللون الأخضر. '}${fm(q[5])}</div><button class="btn" onclick="nx()">${last?'عرض النتيجة':'السؤال التالي'}</button>`;
+}
+function nx(){S.i++;S.i<5?ask():fin()}
+function fin(){
+const k=star(S.s),b=ld();if(k>(b[S.t]||0)){b[S.t]=k;sv(b)}
+const msg=S.s==5?'ممتازة! درجة كاملة.':S.s>=4?'رائع! أنتِ مستحقة لشهادة تميّز.':S.s>=3?'جيد، حاولي مرة أخرى لتصلي إلى 4 من 5.':'لا بأس، راجعي الدرس وأعيدي المحاولة.';
+$.innerHTML=`<div class="res"><h2>${T[S.t].n}</h2><div class="big">${S.s} / 5</div><div class="stars">${'★'.repeat(k)}${'☆'.repeat(3-k)}</div><p>${msg}</p><button class="btn" onclick="go(${S.t})">أعيدي التحدّي</button>${S.s>=4?'<button class="btn y" onclick="cert()">شهادة التميّز</button>':''}<button class="btn g" onclick="home()">الرئيسية</button></div>`;
+}
+function cert(){
+const d=new Date().toLocaleDateString('ar-SA');
+$.innerHTML=`<div class="np"><input id="nm" placeholder="اكتبي اسمك هنا" oninput="document.getElementById('nv').textContent=this.value||'................'"></div>
+<div class="cert"><h2>شهادة تميّز</h2><p>تُمنح الطالبة</p><div class="n" id="nv">................</div><p>لتفوقها في تحدّي «${T[S.t].n}» بدرجة ${S.s} من 5<br>مادة الكيمياء – الصف الثاني الثانوي – الثانوية ١٠٣</p><p style="color:var(--mute)">${d}</p>
+<div class="sg"><div>معلمة المادة<b>آمنة المالكي</b></div><div>مديرة المدرسة<b>أمل الشمراني</b></div></div></div>
+<p class="np" style="text-align:center"><button class="btn y" onclick="window.print()">طباعة أو حفظ PDF</button><button class="btn g" onclick="home()">الرئيسية</button></p>`;
+}
+home();
+</script>
+</body>
+</html>
