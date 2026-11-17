@@ -1,5 +1,7 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>رحلة إبداع</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap">
 <style>
 :root{--navy:#12304a;--teal:#0f8b8d;--gold:#f2b632;--pink:#ff8fa3;--mint:#7fe0d8;--ok:#1c8a4f;--bad:#d6304f}
@@ -71,6 +73,7 @@ button{font-family:inherit;font-weight:800;font-size:16px;border:0;border-radius
 @media (prefers-reduced-motion:no-preference){.card{animation:in .35s ease both}@keyframes in{from{opacity:0;transform:translateY(8px)}}}
 @media print{body{background:#fff}.bubbles,.top,.stats,.hint,.row,#trait,.note,#s-start,#s-task{display:none!important}.card{box-shadow:none;border:0;animation:none}#s-elem:not([hidden]) h2{display:none}.cert{break-inside:avoid}}
 </style>
+</head><body>
 <div class="bubbles" id="bub"></div>
 
 <div class="wrap">
@@ -274,3 +277,4 @@ function finish(){
 }
 $("again").addEventListener("click",function(){$("s-end").hidden=true;start()});
 </script>
+</body></html>
