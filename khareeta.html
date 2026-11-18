@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>من الخريطة إلى القلب</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap">
+<style>
+:root{--navy:#0d3b26;--teal:#0b7a43;--gold:#f2b632;--pink:#ff8fa3;--mint:#9fe6b8;--ok:#1c8a4f;--bad:#d6304f}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{direction:rtl}
+body{font-family:Cairo,Tahoma,sans-serif;background:linear-gradient(160deg,#e4f5ea,#fff7e3 60%,#f3f7e6);min-height:100vh;color:var(--navy);position:relative;overflow-x:hidden;font-size:16px;line-height:1.7}
+.bubbles span{position:fixed;border-radius:50%;background:rgba(15,139,141,.09);animation:fl 14s infinite linear;bottom:-60px;pointer-events:none}
+@keyframes fl{to{transform:translateY(-115vh)}}
+.wrap{max-width:620px;margin:0 auto;padding:14px 14px 40px;position:relative;z-index:1;display:flex;flex-direction:column;gap:14px}
+.top{background:linear-gradient(135deg,var(--navy),#14663c 60%,var(--teal));color:#fff;border-radius:26px;padding:20px 16px 18px;text-align:center;box-shadow:0 10px 26px rgba(18,48,74,.28);position:relative;overflow:hidden}
+.top:before{content:"⚛";position:absolute;font-size:150px;opacity:.08;left:-20px;top:-30px}
+.top:after{content:"⚗";position:absolute;font-size:120px;opacity:.08;right:-10px;bottom:-30px}
+.school{font-weight:800;font-size:15px;color:var(--mint)}
+.title{font-weight:900;font-size:40px;line-height:1.25;margin:4px 0}.title b{color:var(--gold)}
+.badge{display:inline-block;background:var(--gold);color:#4a2d00;font-weight:900;font-size:15px;border-radius:20px;padding:3px 16px;margin:2px 0 6px}
+.sub{font-size:15px;font-weight:600}.sub2{font-size:15px;font-weight:800;color:var(--mint);margin-top:4px}
+.names{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.names div{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:5px 12px;font-size:13px}.names b{color:var(--gold)}
+.stats{display:flex;gap:10px}
+.stat{flex:1;background:#fff;border-radius:18px;padding:10px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.07)}
+.stat b{display:block;font-size:24px;color:var(--teal);font-weight:900;line-height:1.3}.stat span{font-size:12px;opacity:.7}
+h1,h2,h3{font-family:inherit;line-height:1.4}
+.card{background:#fff;border-radius:24px;padding:20px 16px;display:flex;flex-direction:column;gap:14px;box-shadow:0 8px 20px rgba(0,0,0,.09);border-top:6px solid var(--teal)}
+.card h2{font-size:21px;font-weight:900}
+.lead{color:#3d5568;font-weight:600}
+label{font-weight:800;font-size:15px}
+input[type=text],select{width:100%;font:inherit;font-weight:600;color:var(--navy);background:#fff;border:2.5px solid #d8e6e6;border-radius:16px;padding:12px 14px;min-height:50px}
+input:focus,select:focus{outline:none;border-color:var(--gold)}
+.field{display:flex;flex-direction:column;gap:6px}
+button{font-family:inherit;font-weight:800;font-size:16px;border:0;border-radius:16px;min-height:50px;padding:10px 20px;cursor:pointer;transition:.1s}
+.primary{background:var(--teal);color:#fff;box-shadow:0 5px 0 #075a31}
+.primary:active{transform:translateY(3px);box-shadow:0 2px 0 #075a31}
+.primary:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.ghost{background:#fff;color:var(--navy);box-shadow:0 5px 0 #cfd8dc;border:0}
+.gold{background:var(--gold);color:#4a2d00;box-shadow:0 5px 0 #c98f12}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.steps{display:flex;gap:6px}
+.steps i{flex:1;height:12px;border-radius:99px;background:#fff;box-shadow:inset 0 1px 3px rgba(0,0,0,.12)}
+.steps i.done{background:linear-gradient(90deg,var(--teal),var(--mint))}
+.steps i.now{background:var(--gold)}
+.tag{align-self:flex-start;font-size:14px;font-weight:900;padding:3px 14px;border-radius:99px;background:#fff1c9;color:#6b4a00}
+.tag.q{background:#ffe0e6;color:#a3173a}
+.task h2{font-size:22px}
+.opts{display:flex;flex-direction:column;gap:2px}
+.opt{display:block;width:100%;background:#fff;color:var(--navy);border:2.5px solid #d8e6e6;border-radius:18px;padding:13px 14px;margin:6px 0;font-size:17px;font-weight:600;direction:ltr;text-align:right;min-height:0}
+.opt:active{transform:scale(.98)}
+.opt.ok{background:#d9f7e4;border-color:#22b866}.opt.bad{background:#ffe0e6;border-color:#f0506e}
+.msg{min-height:1.6em;font-weight:800}.msg.ok{color:var(--ok)}.msg.bad{color:var(--bad)}
+.check{display:flex;gap:12px;align-items:flex-start;padding:14px;border:2.5px dashed var(--gold);border-radius:18px;background:#fffbe8}
+.check input{width:26px;height:26px;margin-top:3px;accent-color:var(--teal)}
+.note{font-size:14px;color:#5a7080;font-weight:600}
+.cert{background:#fffdf6;color:#10283a;border:10px double var(--gold);border-radius:12px;padding:24px 16px;text-align:center;display:flex;flex-direction:column;gap:10px}
+.cert h2{font-size:32px;font-weight:900;color:var(--teal)}
+.cert .who{font-size:26px;font-weight:900;color:#a8741a;border-bottom:3px dotted var(--gold);padding:4px 10px;align-self:center;min-width:60%}
+.cert p{margin:0}
+.cert .done{list-style:none;padding:0;margin:6px auto;display:flex;flex-direction:column;gap:4px;font-size:14px;max-width:420px;text-align:start}
+.cert .done li::before{content:"✓ ";color:#1c8a4f;font-weight:900}
+.sigs{display:flex;justify-content:space-around;gap:12px;margin-top:10px;font-size:14px}
+.sigs b{display:block;font-size:16px;color:var(--teal)}
+.sigs span{display:block;border-top:1px solid #8aa;padding-top:4px;min-width:120px}
+.idc{background:linear-gradient(135deg,#d9f0e4,#f8ebc4);color:#0d3b26;border:3px solid #1c8a4f;border-radius:20px;padding:16px;display:flex;gap:16px;align-items:center;box-shadow:0 8px 16px rgba(0,0,0,.1)}
+.idc .sym{flex:none;width:100px;height:100px;border-radius:16px;background:#fff;border:3px solid #1c8a4f;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.idc .sym b{font-size:42px;line-height:1;color:#0b7a43;font-weight:900}.idc .sym i{font-style:normal;font-size:13px;font-weight:700}
+.idc dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:15px}.idc dt{font-weight:900}.idc dd{margin:0;font-weight:600}
+.idc h3{font-size:19px;margin-bottom:6px;font-weight:900}
+@media (max-width:420px){.idc{flex-direction:column;text-align:center}.title{font-size:34px}}
+.hint{font-size:14px;color:#5a7080;text-align:center;font-weight:600}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:no-preference){.card{animation:in .35s ease both}@keyframes in{from{opacity:0;transform:translateY(8px)}}}
+@media print{body{background:#fff}.bubbles,.top,.stats,.hint,.row,#trait,.note,#s-start,#s-task{display:none!important}.card{box-shadow:none;border:0;animation:none}#s-elem:not([hidden]) h2{display:none}.cert{break-inside:avoid}}
+textarea{width:100%;font:inherit;font-weight:600;color:var(--navy);background:#fff;border:2.5px solid #d8e6e6;border-radius:16px;padding:12px 14px;min-height:96px;resize:vertical}textarea:focus{outline:none;border-color:var(--gold)}.qbox{background:#fff;border-radius:20px;padding:14px;border-right:6px solid var(--teal);box-shadow:0 4px 12px rgba(0,0,0,.07);display:flex;flex-direction:column;gap:8px}.qbox b{font-size:16px}.quote{background:#fffbe8;border:2.5px dashed var(--gold);border-radius:18px;padding:14px;font-weight:700;line-height:1.9}.ok2{color:var(--ok);font-weight:800;min-height:1.4em}
+</style>
+</head><body>
+<div class="bubbles" id="bub"></div>
+
+<div class="wrap">
+  <div class="top">
+    <div class="school">🇸🇦 الثانوية ١٠٣ · مادة الكيمياء</div>
+    <div class="title" style="font-size:32px">من الخريطة إلى <b>القلب</b></div>
+    <div class="badge">كيمياء وطني · مواطنة مسؤولة</div>
+    <div class="sub">مهام ذكية تُختار عشوائياً لتنمّي الانتماء والمسؤولية</div>
+    <div class="sub2">أنجزيها لتحصلي على شهادة «مواطنة مسؤولة»</div>
+    <div class="names"><div>معلمة المادة: <b>آمنة المالكي</b></div><div>مديرة المدرسة: <b>أمل الشمراني</b></div></div>
+  </div>
+  <div class="stats"><div class="stat"><b id="cv">…</b><span>زيارة</span></div><div class="stat"><b id="cc">…</b><span>شهادة صدرت</span></div></div>
+
+  <section id="s-start" class="card">
+    <h2>🇸🇦 سجّلي بياناتك وابدئي</h2>
+    <p class="lead">عندما ينبض الوطن في قلوبنا نصبح شعباً واحداً وقلباً واحداً. ستقرئين نصاً وطنياً، ثم تجيبين عن مهام تُختار لكِ عشوائياً، وبعدها تحصلين على شهادتك.</p>
+    <form id="f" class="card" style="padding:0;border:0;gap:12px;box-shadow:none">
+      <div class="field"><label for="nm">اسم الطالبة</label><input id="nm" type="text" autocomplete="off" placeholder="اكتبي اسمك"></div>
+      <div class="field"><label for="sec">الشعبة</label><select id="sec"><option value="">اختاري الشعبة</option><option>ثاني/٤</option><option>ثاني/٥</option><option>ثاني/٦</option></select></div>
+      <button class="primary" id="go" type="submit" disabled>ابدئي المهام</button>
+    </form>
+  </section>
+
+  <section id="s-work" class="card" hidden>
+    <h2>📜 اقرئي أولاً</h2>
+    <div class="quote">«الدفاع عن العقيدة الإسلامية والمجتمع والوطن واجب على كل مواطن.»<br><span class="note">— النظام الأساسي للحكم، المادة ٣٤</span></div>
+    <p class="lead">والمواطنة تُترجم إلى أفعال صغيرة. أجيبي عن المهام التالية بصدق ووضوح (جملتان على الأقل لكل مهمة):</p>
+    <div id="tasks" style="display:flex;flex-direction:column;gap:12px"></div>
+    <div class="ok2" id="msg"></div>
+    <div class="row"><button class="primary" id="submit" disabled>تسليم النشاط وعرض الشهادة</button><button class="ghost" id="newt" type="button">🔄 مهام جديدة</button></div>
+  </section>
+
+  <section id="s-end" hidden>
+    <div class="cert" id="cert">
+      <div style="font-size:34px" aria-hidden="true">🇸🇦</div>
+      <h2>شهادة مواطنة مسؤولة</h2>
+      <p>تتشرف الثانوية ١٠٣ بمنح الطالبة</p>
+      <div class="who" id="c-name"></div>
+      <p id="c-sec"></p>
+      <p>تقديراً لإنجازها مهام «من الخريطة إلى القلب» وتعهّدها بحماية دينها ومجتمعها ووطنها، والمحافظة على مكتسباته وثرواته.</p>
+      <p class="note" id="c-no"></p><p id="c-date" class="note"></p>
+      <div class="sigs"><div><span><b>آمنة المالكي</b>معلمة المادة</span></div><div><span><b>أمل الشمراني</b>مديرة المدرسة</span></div></div>
+    </div>
+    <p class="hint">صوّري الشهادة أو اطبعيها، وأرسليها لمعلمتك.</p>
+    <div class="row" style="justify-content:center"><button class="gold" id="pr2" type="button">🖨️ طباعة الشهادة</button><button class="ghost" id="again">مهام جديدة</button></div>
+  </section>
+</div>
+<script>
+(function(){var b=document.getElementById("bub");for(var i=0;i<12;i++){var e=document.createElement("span"),z=20+Math.random()*60;e.style.cssText="width:"+z+"px;height:"+z+"px;left:"+Math.random()*100+"%;animation-delay:-"+Math.random()*14+"s;animation-duration:"+(10+Math.random()*10)+"s";b.appendChild(e)}})();
+var T=[
+["صفات المواطن المسؤول","اذكري ثلاث صفات تجعل المواطنة مسؤولة تجاه وطنها، واشرحي واحدة منها."],
+["موقف من حياتك","اذكري موقفاً من يومك حافظتِ فيه على مكتسبات الوطن (ترشيد الماء أو الكهرباء، النظافة، احترام الأنظمة)."],
+["الكيمياء تخدم وطني","كيف تخدم الكيمياء وطننا؟ اذكري مثالين (تحلية المياه، البتروكيماويات، التعدين، الأسمدة…)."],
+["ثروة وطني","اختاري عنصراً أو مادة من ثروات المملكة (ذهب، نحاس، فوسفات، ألومنيوم…) واكتبي لماذا هو مهم لوطننا."],
+["رسالة شكر","اكتبي رسالة شكر قصيرة لجندي أو رجل أمن أو معلمة تخدم هذا الوطن."],
+["ترشيد المياه","اقترحي فكرة لترشيد استهلاك الماء في مدرستك أو بيتك، مستندة إلى معلومة علمية."],
+["حماية البيئة","كيف تساهمين في حماية البيئة (إعادة التدوير، تقليل البلاستيك، الحفاظ على النظافة)؟"],
+["عهدي لوطني","اكتبي عهداً قصيراً تلتزمين فيه بخدمة وطنك والمحافظة عليه."],
+["رؤية 2030","اذكري هدفاً من أهداف الرؤية تتمنين أن تساهمي فيه مستقبلاً، ولماذا؟"],
+["مرافق المدرسة","كيف تحافظين على مرافق مدرستك ومختبرها، وما أثر ذلك على الجميع؟"],
+["معنى الانتماء","ما معنى الانتماء للوطن بكلماتك أنتِ؟ وكيف تظهرينه في تصرفاتك؟"],
+["وطني بثلاث كلمات","صفي وطنك بثلاث كلمات، وبرّري اختيارك لكل كلمة."]
+];
+function pick(a,n){var c=a.slice(),o=[];while(n--&&c.length){o.push(c.splice(Math.floor(Math.random()*c.length),1)[0])}return o}
+var $=function(i){return document.getElementById(i)};
+var NS="chem103-citizen";
+function ar(n){return String(n).replace(/\d/g,function(d){return "٠١٢٣٤٥٦٧٨٩"[d]})}
+function cnt(act,key,el){try{fetch("https://abacus.jasoncameron.dev/"+act+"/"+NS+"/"+key).then(function(r){return r.json()}).then(function(j){if(el&&typeof j.value==="number")$(el).textContent=ar(j.value)}).catch(function(){if(el)$(el).textContent="–"})}catch(e){if(el)$(el).textContent="–"}}
+var seen=false;try{seen=sessionStorage.getItem("c")}catch(e){}
+cnt(seen?"get":"hit","visits","cv");try{sessionStorage.setItem("c","1")}catch(e){}
+cnt("get","certs","cc");
+var me={},cur=[];
+function validate(){$("go").disabled=!($("nm").value.trim().length>1&&$("sec").value)}
+$("nm").addEventListener("input",validate);$("sec").addEventListener("change",validate);
+$("f").addEventListener("submit",function(e){e.preventDefault();me.name=$("nm").value.trim();me.sec=$("sec").value;$("s-start").hidden=true;$("s-work").hidden=false;draw()});
+function check(){var ok=true;[].forEach.call(document.querySelectorAll("#tasks textarea"),function(t){if(t.value.trim().length<20)ok=false});$("submit").disabled=!ok;$("msg").textContent=ok?"أحسنتِ! أجبتِ عن كل المهام، يمكنك التسليم.":""}
+function draw(){cur=pick(T,4);var w=$("tasks");w.innerHTML="";
+  cur.forEach(function(t,i){var d=document.createElement("div");d.className="qbox";d.innerHTML="<b>"+ar(i+1)+". "+t[0]+"</b><span class='lead'>"+t[1]+"</span>";
+    var ta=document.createElement("textarea");ta.placeholder="اكتبي إجابتك بصدق ووضوح…";ta.addEventListener("input",check);d.appendChild(ta);w.appendChild(d)});
+  check()}
+$("newt").addEventListener("click",draw);
+$("submit").addEventListener("click",function(){
+  if($("submit").disabled)return;cnt("hit","certs","cc");
+  $("s-work").hidden=true;$("s-end").hidden=false;
+  var h=0,t=me.name+Date.now();for(var i=0;i<t.length;i++){h=(h*131+t.charCodeAt(i))%999983}
+  $("c-name").textContent=me.name;$("c-sec").textContent="الصف الثاني الثانوي – "+me.sec;$("c-no").textContent="رقم الشهادة: #C-"+String(h).padStart(6,"0");
+  var d="";try{d=new Date().toLocaleDateString("ar-SA",{day:"numeric",month:"long",year:"numeric"})}catch(x){d=new Date().toDateString()}
+  $("c-date").textContent="التاريخ: "+d;window.scrollTo(0,0)});
+$("pr2").addEventListener("click",function(){try{window.print()}catch(e){}});
+$("again").addEventListener("click",function(){$("s-end").hidden=true;$("s-work").hidden=false;draw();window.scrollTo(0,0)});
+</script>
+</body></html>
